@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@keyframes splitflap {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-splitflap {
+  animation: splitflap 0.1s ease-in-out;
+}
+
+@layer components {
+  .ag-input {
+    @apply w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none focus:border-blue-500;
+  }
+
+  .ag-button {
+    @apply px-4 py-2 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none focus:shadow-outline;
+  }
+
+  .ag-card {
+    @apply bg-white shadow-lg rounded-lg p-6;
+  }
+
+  .ag-title {
+    @apply text-2xl font-bold mb-4;
+  }
+
+  .ag-subtitle {
+    @apply text-xl font-semibold mb-2;
+  }
+}
+@keyframes flipTop {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flipBottom {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.animate-flipTop {
+  animation: flipTop 150ms ease-in-out;
+}
+
+.animate-flipBottom {
+  animation: flipBottom 150ms ease-in-out;
+}
